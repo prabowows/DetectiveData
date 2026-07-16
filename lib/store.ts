@@ -11,6 +11,7 @@ interface DetectiveDataState {
   addOrReplaceCase: (c: Case) => void;
   setCaseStatus: (caseId: string, status: Case["status"]) => void;
   deleteCase: (caseId: string) => void;
+  setCases: (cases: Case[]) => void;
 
   // Player actions
   getOrStartProgress: (caseId: string) => InvestigationProgress;
@@ -42,6 +43,11 @@ export const useDetectiveStore = create<DetectiveDataState>()(
       deleteCase: (caseId) =>
         set((state) => ({
           cases: state.cases.filter((c) => c.meta.caseId !== caseId),
+        })),
+
+      setCases: (cases) =>
+        set(() => ({
+          cases,
         })),
 
       getOrStartProgress: (caseId) => {
