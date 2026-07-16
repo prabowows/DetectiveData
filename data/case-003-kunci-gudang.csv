@@ -1,0 +1,23 @@
+Type,Key,Value,ID,Time,Source,Actor,Action,Object,Target,Location,Description,Importance
+META,CASE_ID,CASE003,,,,,,,,,,
+META,TITLE,Barang Gudang yang Menghilang,,,,,,,,,,
+META,DIFFICULTY,Hard,,,,,,,,,,
+META,CATEGORY,Theft,,,,,,,,,,
+META,TIME_LIMIT,25,,,,,,,,,,
+META,MAX_SCORE,200,,,,,,,,,,
+META,STORY,"Sebuah gudang penyimpanan kehilangan beberapa unit barang elektronik senilai puluhan juta rupiah. Gudang dilengkapi sensor pintu IoT, CCTV, dan sistem absensi. Empat pekerja memiliki akses ke gudang pada malam kejadian. Analisis seluruh jejak digital untuk menemukan siapa yang benar-benar masuk dan mengambil barang.",,,,,,,,,,
+META,QUESTION,Siapa yang mengambil barang dari gudang? Jelaskan alasan investigasi Anda berdasarkan bukti yang ditemukan.,,,,,,,,,,
+META,CULPRIT,Citra,,,,,,,,,,
+META,SOLUTION,"Sensor pintu IoT mencatat pintu gudang terbuka pukul 01.12 menggunakan kartu akses milik Citra, tepat setelah CCTV menunjukkan Citra kembali ke area gudang. GPS kendaraan Citra juga menunjukkan pergerakan menuju gudang pada jam yang sama, berbeda dari jadwal shift-nya yang seharusnya sudah selesai pukul 22.00.",,,,,,,,,,
+META,REFERENCE_EVENTS,5|7|8|9,,,,,,,,,,
+META,HINT,Bandingkan jadwal shift resmi setiap pekerja dengan waktu sebenarnya sensor pintu dan CCTV mencatat pergerakan mereka.,,,,,,,,,,
+EVENT,,,1,18:00,Attendance,Andi,Check In,,,Gudang Utama,Andi mulai shift malam,1
+EVENT,,,2,18:00,Attendance,Citra,Check In,,,Gudang Utama,Citra mulai shift malam,1
+EVENT,,,3,22:00,Attendance,Citra,Check Out,,,Gudang Utama,Citra tercatat check out sesuai jadwal shift,2
+EVENT,,,4,22:05,CCTV,Citra,Exit,,,Pintu Depan Gudang,CCTV merekam Citra meninggalkan gudang melalui pintu depan,2
+EVENT,,,5,01:05,GPS,Citra,Move,,,Area Parkir Gudang,GPS kendaraan Citra menunjukkan kembali ke area gudang tengah malam,4
+EVENT,,,6,01:10,CCTV,Citra,Enter,,,Pintu Belakang Gudang,CCTV merekam Citra masuk kembali lewat pintu belakang,5
+EVENT,,,7,01:12,IoT Sensor,Citra,Unlock,Pintu Gudang,,Gudang Utama,Sensor pintu mencatat akses menggunakan kartu milik Citra,5
+EVENT,,,8,01:20,IoT Sensor,Citra,Move,Rak B3,,Gudang Utama,Sensor gerak mendeteksi aktivitas di rak elektronik B3,5
+EVENT,,,9,01:35,CCTV,Citra,Exit,Kotak Kardus,,Pintu Belakang Gudang,CCTV merekam Citra keluar membawa dua kotak kardus besar,5
+EVENT,,,10,06:00,Attendance,Andi,Check Out,,,Gudang Utama,Andi menyelesaikan shift malam tanpa insiden,1

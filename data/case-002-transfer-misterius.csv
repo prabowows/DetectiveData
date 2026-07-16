@@ -1,0 +1,23 @@
+Type,Key,Value,ID,Time,Source,Actor,Action,Object,Target,Location,Description,Importance
+META,CASE_ID,CASE002,,,,,,,,,,
+META,TITLE,Transfer Misterius Dana Perusahaan,,,,,,,,,,
+META,DIFFICULTY,Medium,,,,,,,,,,
+META,CATEGORY,Fraud,,,,,,,,,,
+META,TIME_LIMIT,20,,,,,,,,,,
+META,MAX_SCORE,150,,,,,,,,,,
+META,STORY,"Bagian keuangan menemukan transfer dana sebesar Rp 85 juta ke rekening tidak dikenal pada akhir bulan. Empat staf memiliki akses ke sistem keuangan pada hari kejadian. Telusuri log transaksi, email, dan chat internal untuk mengungkap siapa yang bertanggung jawab.",,,,,,,,,,
+META,QUESTION,Siapa yang melakukan transfer dana tidak sah tersebut? Jelaskan alasan investigasi Anda berdasarkan bukti yang ditemukan.,,,,,,,,,,
+META,CULPRIT,Deni,,,,,,,,,,
+META,SOLUTION,"Log transaksi menunjukkan Deni login ke sistem keuangan pada pukul 23.10 menggunakan kredensial miliknya sendiri, lalu mengirim email konfirmasi ke rekening baru yang ia buat dua hari sebelumnya. Chat internal juga menunjukkan Deni sempat menanyakan cara membatalkan jejak transaksi kepada rekannya.",,,,,,,,,,
+META,REFERENCE_EVENTS,4|6|7|9,,,,,,,,,,
+META,HINT,Perhatikan siapa yang mengakses sistem di luar jam kerja normal dan siapa yang membuat rekening baru menjelang kejadian.,,,,,,,,,,
+EVENT,,,1,08:30,Attendance,Deni,Check In,,,Kantor Pusat,Deni masuk kantor seperti biasa,1
+EVENT,,,2,08:40,Attendance,Rina,Check In,,,Kantor Pusat,Rina masuk kantor,1
+EVENT,,,3,09:15,Email,Deni,Send,Formulir Rekening Baru,Bank,Kantor Pusat,Deni mengirim formulir pembukaan rekening baru ke bank,3
+EVENT,,,4,22:50,Transaction,Deni,Login,Sistem Keuangan,,Remote,Deni login ke sistem keuangan dari luar kantor pada malam hari,5
+EVENT,,,5,22:55,Chat,Deni,Message,,Rina,Grup Chat Internal,Deni bertanya cara menghapus jejak transaksi kepada Rina,4
+EVENT,,,6,23:05,Chat,Rina,Message,,Deni,Grup Chat Internal,Rina menjawab bahwa log transaksi tidak bisa dihapus,3
+EVENT,,,7,23:10,Transaction,Deni,Transfer,Dana Rp85.000.000,Rekening Tidak Dikenal,Remote,Transfer dana sebesar Rp85 juta dilakukan dari akun Deni,5
+EVENT,,,8,23:12,Transaction,System,Log,Transfer,,Server Keuangan,Sistem mencatat transaksi keluar sebesar Rp85 juta,5
+EVENT,,,9,23:20,Email,Deni,Send,Konfirmasi Transfer,Bank,Remote,Deni mengirim email konfirmasi transfer ke bank tujuan,5
+EVENT,,,10,07:00,Attendance,Deni,Check In,,,Kantor Pusat,Deni masuk kantor seperti biasa keesokan harinya,1

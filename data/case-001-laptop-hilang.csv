@@ -1,0 +1,23 @@
+﻿Type,Key,Value,ID,Time,Source,Actor,Action,Object,Target,Location,Description,Importance
+META,CASE_ID,CASE001,,,,,,,,,,
+META,TITLE,Laptop Hilang di Kantor,,,,,,,,,,
+META,DIFFICULTY,Easy,,,,,,,,,,
+META,CATEGORY,Theft,,,,,,,,,,
+META,TIME_LIMIT,15,,,,,,,,,,
+META,MAX_SCORE,100,,,,,,,,,,
+META,STORY,"Pada hari Senin, Pak Budi melaporkan laptop kantornya hilang setelah kembali dari rapat. Seluruh bukti investigasi tersedia dalam bentuk CCTV, GPS, chat, transaksi, dan hasil forensik. Analisis seluruh data untuk menemukan pelaku.",,,,,,,,,,
+META,QUESTION,Siapa pelaku pencurian laptop? Jelaskan alasan investigasi Anda berdasarkan bukti yang ditemukan.,,,,,,,,,,
+META,CULPRIT,Andi,,,,,,,,,,
+META,SOLUTION,"Berdasarkan rekaman CCTV, data GPS, dan sidik jari yang ditemukan di meja korban, Andi adalah satu-satunya orang yang memiliki kesempatan mengambil laptop sebelum meninggalkan ruangan membawa tas hitam.",,,,,,,,,,
+META,REFERENCE_EVENTS,5|6|8|10,,,,,,,,,,
+META,HINT,Perhatikan urutan waktu kejadian dan siapa yang berada sendirian di ruangan sebelum laptop dinyatakan hilang.,,,,,,,,,,
+EVENT,,,1,08:00,Attendance,Andi,Check In,,,Lobby,Andi masuk kantor,1
+EVENT,,,2,08:03,Attendance,Eva,Check In,,,Lobby,Eva masuk kantor,1
+EVENT,,,3,08:05,Attendance,Citra,Check In,,,Lobby,Citra masuk kantor,1
+EVENT,,,4,13:45,CCTV,Pak Budi,Exit,,,Pak Budi Office,Pak Budi keluar menuju ruang rapat,3
+EVENT,,,5,13:53,CCTV,Andi,Enter,,,Pak Budi Office,Andi masuk ke ruang Pak Budi,5
+EVENT,,,6,13:55,GPS,Andi,Stay,,,Pak Budi Office,Andi berada sendirian di dalam ruangan,5
+EVENT,,,7,14:00,Incident,System,Report,Laptop,,Pak Budi Office,Laptop dinyatakan hilang,5
+EVENT,,,8,14:02,CCTV,Andi,Exit,,,Pak Budi Office,Andi keluar membawa tas hitam,5
+EVENT,,,9,14:03,GPS,Andi,Move,,,Lift Area,Andi menuju lift,4
+EVENT,,,10,15:30,Forensic,System,Find,Fingerprint,Andi,Pak Budi Office,Sidik jari Andi ditemukan pada meja laptop,5
